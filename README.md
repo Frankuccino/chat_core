@@ -88,7 +88,13 @@ test/
 ```
 
 ## Go / Rust → Elixir, quick mapping
-ConceptGoRustElixirConcurrency UnitGoroutineThread / Async TaskBEAM ProcessPassing DataChannelChannel / Arc<Mutex<T>>Message passing (mailboxes)Shared Mutable StateMutex-guardedArc<Mutex<T>>Process-owned state (via GenServer)Error Handlingif err != nilResult<T, E>Let it crash; supervisor restarts
+| Concept                  | Go                 | Rust                      | Elixir                                  |
+| ------------------------ | ------------------ | ------------------------- | --------------------------------------- |
+| **Concurrency Unit**     | Goroutine          | Thread / Async Task       | BEAM Process                            |
+| **Passing Data**         | Channel            | Channel / `Arc<Mutex<T>>` | Message passing (mailboxes)             |
+| **Shared Mutable State** | Mutex-guarded data | `Arc<Mutex<T>>`           | Process-owned state (e.g., `GenServer`) |
+| **Error Handling**       | `if err != nil`    | `Result<T, E>`            | "Let it crash"; supervisor restarts     |
+
 
 
 ## Next steps
