@@ -88,13 +88,10 @@ test/
 ```
 
 ## Go / Rust → Elixir, quick mapping
-ConceptGoRustElixirConcurrency unitgoroutinethread / async taskBEAM processPassing data aroundchannelchannel / Arc<Mutex<T>>message to a process mailboxShared mutable statemutex-guardedArc<Mutex<T>>doesn't exist — one process owns itError handlingif err != nilResult<T, E>let it crash; supervisor restarts
+ConceptGoRustElixirConcurrency UnitGoroutineThread / Async TaskBEAM ProcessPassing DataChannelChannel / Arc<Mutex<T>>Message passing (mailboxes)Shared Mutable StateMutex-guardedArc<Mutex<T>>Process-owned state (via GenServer)Error Handlingif err != nilResult<T, E>Let it crash; supervisor restarts
 
 
 ## Next steps
 
 - [ ] Phoenix Channels — expose this over real WebSockets
 - [ ] Ecto + Postgres — persist room history across restarts
-
-
-> One note on that last README section: I'd genuinely leave those two checkboxes unchecked in the repo rather than building them out before your first commit. This version — small, tested, honestly scoped — is a good clean checkpoint to push as-is. Adding Phoenix or Ecto is a good *second* commit, not part of getting this one out the door.
